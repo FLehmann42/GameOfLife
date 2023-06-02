@@ -7,3 +7,5 @@ With the "New Grid" button on the side, a new grid can be created with the speci
 With the "Next Generation" button on the side, the next generation will be calculated and displayed.
 
 Cells can be clicked to manually set them to alive or dead, respectively.
+
+Solution for Kata: https://codingdojo.org/kata/GameOfLife/
