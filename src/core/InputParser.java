@@ -44,22 +44,17 @@ public class InputParser {
 			
 			if(dimensionLine != null) {
 				
-				boolean heightSet = false;
-				boolean widthSet = false;
+				String[] dimensions = dimensionLine.split(" ");
 				
-				for(int i = 0; i<dimensionLine.length(); i++) {
-					
-					int asciiValue = (int) dimensionLine.charAt(i);
-					if(asciiValue >= 48 && asciiValue <=57) {
-						if(heightSet && !widthSet) {
-							width = Character.getNumericValue(asciiValue);
-							widthSet = true;
-						} else {
-							height = Character.getNumericValue(asciiValue);
-							heightSet = true;
-						}
-					}
+				if(!isInteger(dimensions[0]) || !isInteger(dimensions[1])) {
+					reader.close();
+					return null;
 				}
+				
+				height = Integer.parseInt(dimensions[0]);
+				width = Integer.parseInt(dimensions[1]);
+				
+				System.out.println(height + " " + width);
 			}
 			
 			boolean[][] grid = new boolean[height][width];
@@ -94,5 +89,15 @@ public class InputParser {
 		
 		return null;
 				
+	}
+	
+	private boolean isInteger(String string) {
+		for(int i = 0; i < string.length(); i++) {
+			if(string.charAt(i) < 48 || string.charAt(i) > 57) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

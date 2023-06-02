@@ -5,6 +5,9 @@ public class Board {
 	private int height, width;
 	private boolean[][] grid;
 	
+	private static int MAX_HEIGHT = 100;
+	private static int MAX_WIDTH = 100;
+	
 	public Board(int height, int width, boolean[][] start) {
 		
 		if(height <= 0 || width <= 0) {
@@ -14,8 +17,8 @@ public class Board {
 			return;
 		}
 		
-		this.height = height;
-		this.width = width;
+		this.height = Math.min(MAX_HEIGHT, height);
+		this.width = Math.min(MAX_WIDTH, width);
 		
 		grid = new boolean[height][width];
 		
