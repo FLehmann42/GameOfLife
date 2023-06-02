@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ferdi
- *
- */
-module GameOfLife {
-}
